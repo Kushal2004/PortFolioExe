@@ -106,6 +106,7 @@ module.exports = {
       },
       animation: {
         "meteor-effect": "meteor 5s linear infinite",
+        aurora: "aurora 60s linear infinite",
       },
       keyframes: {
         meteor: {
@@ -114,6 +115,14 @@ module.exports = {
           "100%": {
             transform: "rotate(215deg) translateX(-500px)",
             opacity: "0",
+          },
+        },
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
           },
         },
       },
@@ -142,6 +151,16 @@ module.exports = {
         },
         { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
       );
+    },
+    function addVariablesForColors({ addBase, theme }) {
+      let allColors = flattenColorPalette(theme("colors"));
+      let newVars = Object.fromEntries(
+        Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+      );
+
+      addBase({
+        ":root": newVars,
+      });
     },
   ],
 }
