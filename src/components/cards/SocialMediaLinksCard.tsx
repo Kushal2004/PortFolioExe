@@ -1,7 +1,9 @@
 import React from 'react';
+import { FollowerPointerCard } from "../ui/following-pointer";
 
 const SocialMediaLinksCard = () => {
   return (
+    <FollowerPointerCard  >
     <div className="ring-1 dark:ring-white/10 ring-primary/5 rounded-3xl justify-between shadow-xl dark:shadow-thick items-center flex flex-col p-8 h-full bg-white dark:bg-secondary">
       <div className="w-full">
         <p className="text-xl font-normal tracking-tight text-primary dark:text-white lg:text-8xl">
@@ -70,6 +72,7 @@ const SocialMediaLinksCard = () => {
         </a>
       </div>
     </div>
+    </FollowerPointerCard>
   );
 };
 
