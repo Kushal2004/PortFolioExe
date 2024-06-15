@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { HeroParallax } from '../ui/hero-parallax';
 const LexingtonCard = () => {
   return (
     <a
@@ -67,6 +67,7 @@ const LexingtonCard = () => {
           Astro.js, and Tailwind CSS — Simple & easy to customise.
         </p>
       </div>
+
     </a>
   );
 };
