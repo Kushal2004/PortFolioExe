@@ -9,24 +9,21 @@ import LexingtonCard from "./cards/LexingtonCard";
 import SubscribeCard from "./cards/SubscribeCard";
 import GlobeCard from "./cards/GlobeCard";
 import GlobeDemo from "./cards/GlobeDemo";
-
 import DesignerCard from "./cards/DesignerCard";
 ---
 
 <section>
   <div class="p-4">
     <div class="grid grid-cols-1 gap-4 list-none lg:grid-cols-3 lg:grid-rows-3 xl:grid-cols-4 xl:grid-rows-4">
-      <IntroductionCard client:idle/>
-      <SocialMediaLinksCard client:idle/>
-      <MonomodCard client:idle/>
-      <ResumeCard client:idle/>
-      <FigmaCommunityCard client:idle/>
-      <LexingtonCard client:idle/>
-      <SubscribeCard client:idle/>
-      <GlobeCard client:idle/>
-      <DesignerCard client:idle/>
-
-
+      <IntroductionCard client:idle />
+      <SocialMediaLinksCard client:idle />
+      <MonomodCard client:idle />
+      <ResumeCard client:idle />
+      <FigmaCommunityCard client:idle />
+      <LexingtonCard client:idle />
+      <SubscribeCard client:only="react" />
+      <GlobeCard client:idle />
+      <DesignerCard client:idle />
     </div>
   </div>
 </section>
