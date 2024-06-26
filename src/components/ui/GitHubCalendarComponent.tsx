@@ -62,7 +62,7 @@ const GithubCalendar: React.FunctionComponent<Props> = ({ username, ...props }) 
   }
 
   return (
-    <>
+    <div className="dark:text-white  p-4">
     <Calendar
     renderBlock={(block, activity) =>
       React.cloneElement(block, {
@@ -77,7 +77,7 @@ const GithubCalendar: React.FunctionComponent<Props> = ({ username, ...props }) 
       }}
       blockMargin={6}
       blockSize={20}
-      fontSize={20}
+      fontSize={15}
       hideColorLegend={false}
       showWeekdayLabels={true}
       
@@ -85,7 +85,7 @@ const GithubCalendar: React.FunctionComponent<Props> = ({ username, ...props }) 
       maxLevel={4}
     />
     <ReactTooltip id="react-tooltip" />
-    </>
+    </div>
   );
 };
 
