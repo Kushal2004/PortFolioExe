@@ -1,6 +1,8 @@
 'use client';
 import React, { useCallback, useEffect, useState } from 'react';
 import Calendar, { ThemeInput, type Props as ActivityCalendarProps } from 'react-activity-calendar';
+import { Tooltip as ReactTooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";  
 
 interface Props extends Omit<ActivityCalendarProps, 'data' | 'theme'> {
   username: string;
@@ -48,7 +50,7 @@ const GithubCalendar: React.FunctionComponent<Props> = ({ username, ...props }) 
           className="inline-block transition duration-300 hover:-translate-y-px outline-none hover:text-primary-10 focus-visible:text-primary-10"
           target="_blank"
         >
-          @Shashank
+          @Kushal2004
         </a>{' '}
         immediately.
       </div>
@@ -60,7 +62,14 @@ const GithubCalendar: React.FunctionComponent<Props> = ({ username, ...props }) 
   }
 
   return (
+    <>
     <Calendar
+    renderBlock={(block, activity) =>
+      React.cloneElement(block, {
+        'data-tooltip-id': 'react-tooltip',
+        'data-tooltip-html': `${activity.count} activities on ${activity.date}`,
+      })
+    }
       data={selectLastNDays(data.contributions)}
       theme={{
         light: ['#f0f0f0', '#c4edde', '#7ac7c4', '#f73859', '#384259'],
@@ -75,13 +84,11 @@ const GithubCalendar: React.FunctionComponent<Props> = ({ username, ...props }) 
       {...props}
       maxLevel={4}
     />
+    <ReactTooltip id="react-tooltip" />
+    </>
   );
 };
 
-const explicitTheme: ThemeInput = {
-  light: ['#f0f0f0', '#c4edde', '#7ac7c4', '#f73859', '#384259'],
-  dark: ['#383838', '#4D455D', '#7DB9B6', '#F5E9CF', '#E96479'],
-};
 
 interface Activity {
   date: string;
@@ -113,5 +120,6 @@ const selectLastNDays = (contributions: any) => {
     return activityDate >= startDate && activityDate <= today;
   });
 };
+
 
 export default GithubCalendar;
