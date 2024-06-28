@@ -8,8 +8,7 @@ const ResumeCard = () => {
           Grab my résumé!
         </p>
         <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 md:max-w-xs lg:max-w-none">
-          Unlock the doors to explore the rich tapestry of my professional
-          journey and accomplishments.
+        Explore the highlights of my career by accessing my resume through this link..
         </p>
       </div>
       <div className="w-full mt-8 md:max-w-xs lg:max-w-none">
