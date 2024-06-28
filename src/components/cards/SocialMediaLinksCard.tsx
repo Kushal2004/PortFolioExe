@@ -1,5 +1,10 @@
 import React from 'react';
 import { FollowerPointerCard } from "../ui/following-pointer";
+import {
+  IconBrandGithub,
+  IconBrandGoogle,
+  IconBrandOnlyfans,
+} from "@tabler/icons-react";
 
 const SocialMediaLinksCard = () => {
   return (
@@ -56,15 +61,9 @@ const SocialMediaLinksCard = () => {
             </svg>
           </a>
         </FollowerPointerCard>
-        <FollowerPointerCard title="Dribbble">
+        <FollowerPointerCard title="OnlyFans">
           <a href="#" className="flex items-center justify-center aspect-square shadow-xl dark:shadow-thick hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20 duration-300 group transition-all h-12 w-12">
-            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-brand-dribbble h-6 w-6 group-hover:scale-125 duration-300 text-primary dark:text-white" viewBox="0 0 24 24" stroke-width="0.8" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-              <path d="M9 3.6c5 6 7 10.5 7.5 16.2"></path>
-              <path d="M6.4 19c3.5 -3.5 6 -6.5 14.5 -6.4"></path>
-              <path d="M3.1 10.75c5 0 9.814 -.38 15.314 -5"></path>
-            </svg>
+          <IconBrandOnlyfans className="h-6 w-6 text-neutral-800 dark:text-neutral-300" />
           </a>
         </FollowerPointerCard>
         <FollowerPointerCard title="Twitter">

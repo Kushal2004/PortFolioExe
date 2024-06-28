@@ -30,6 +30,7 @@ function GlobeDemo() {
     autoRotate: true,
     autoRotateSpeed: 0.5,
   };
+  
   const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
   const sampleArcs = [
     {
@@ -396,8 +397,8 @@ function GlobeDemo() {
 
   return (
     <div className="shadow-xl dark:shadow-thick rounded-3xl p-8 lg:row-start-4 h-full flex flex-col justify-center items-center bg-white dark:bg-secondary">
-      <div className="dark:overflow-visible relative w-full max-w-[900px] aspect-square m-auto border">
-        
+      <div className=" relative w-full max-w-[900px] aspect-square m-auto ">
+
         <World data={sampleArcs} globeConfig={globeConfig} />
       </div>
     </div>
