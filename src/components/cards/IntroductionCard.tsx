@@ -13,7 +13,7 @@ const IntroductionCard = () => {
           <p className="font-semibold text-primary dark:text-white">
             <a href="#">
               <span className="absolute inset-0"></span>
-              Michael Andreuzza
+              K Kushal
             </a>
           </p>
           <p className="text-zinc-500 dark:text-zinc-400">
@@ -25,11 +25,11 @@ const IntroductionCard = () => {
         Hey, welcome to my site!
       </p>
       <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 font-light lg:text-xl">
-        I'm a digital designer, developer, and surfer from Malibu. In the
-        digital world, I craft interfaces and dive into coding intricacies.
+      A Computer Science student committed to enhancing 
+      digital security and developing innovative applications. 
         <br />
         <br />
-        Beyond screens, I find solace and joy riding waves along Malibu's shores.
+       Beyond screens, I find solace and joy riding waves along Malibu's shores.
         My life blends tech and nature, coding sessions, and catching waves.
       </p>
     </div>
