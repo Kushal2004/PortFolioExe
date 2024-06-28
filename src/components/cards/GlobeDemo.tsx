@@ -7,7 +7,7 @@ const World = dynamic(() => import("../ui/globe").then((m) => m.World), {
   ssr: false,
 });
 
-export function GlobeDemo() {
+ function GlobeDemo() {
   const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",
@@ -395,31 +395,12 @@ export function GlobeDemo() {
   ];
 
   return (
-    <div className=" border rounded-3xl lg:row-start-4 flex flex-row items-center justify-center h-screen md:h-auto dark:bg-black bg-white relative w-full">
-      <div className="border max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[10rem] ">
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 1,
-          }}
-          
-        >
-          <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
-            We sell soap worldwide
-          </h2>
-          
-        </motion.div>
-        <div className="h-full absolute w-50  bottom-0 inset-x-0  bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
-          <World data={sampleArcs} globeConfig={globeConfig} />;
+    <div className="shadow-xl dark:shadow-thick rounded-3xl p-8 lg:row-start-4 h-full flex flex-col justify-center items-center bg-white dark:bg-secondary">
+  <div className="relative w-full max-w-[900px] aspect-square m-auto">
+          <World data={sampleArcs} globeConfig={globeConfig} />
         </div>
       </div>
   );
 }
+
 export default GlobeDemo;
