@@ -29,8 +29,8 @@ const IntroductionCard = () => {
       digital security and developing innovative applications. 
         <br />
         <br />
-       Beyond screens, I find solace and joy riding waves along Malibu's shores.
-        My life blends tech and nature, coding sessions, and catching waves.
+        Beyond the screen, I find happiness in the notes of the piano and the colors of my paintings.
+        My life is a fusion of technical precision and artistic freedom.
       </p>
     </div>
   );
