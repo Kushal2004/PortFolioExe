@@ -1,4 +1,12 @@
 import React from 'react';
+import { FlipWords } from '../ui/flip-words';
+
+const words = [
+  'Web Developer',
+  'Web Exploiter',
+  'Cybersecurity Enthusiast',
+  'ML Engineer'
+];
 
 const IntroductionCard = () => {
   return (
@@ -17,7 +25,7 @@ const IntroductionCard = () => {
             </a>
           </p>
           <p className="text-zinc-500 dark:text-zinc-400">
-            Cyber Security &amp; Web developer
+          <FlipWords words={words} />
           </p>
         </div>
       </div>
