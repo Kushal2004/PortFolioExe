@@ -17,7 +17,7 @@ const IntroductionCard = () => {
             </a>
           </p>
           <p className="text-zinc-500 dark:text-zinc-400">
-            UI Design &amp; Web developer
+            Cyber Security &amp; Web developer
           </p>
         </div>
       </div>
