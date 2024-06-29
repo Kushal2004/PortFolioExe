@@ -9,6 +9,7 @@ import LexingtonCard from "./cards/LexingtonCard";
 import  GithubCard from "./cards/GithubCard";
 import GlobeCard from "./cards/GlobeCard";
 import DesignerCard from "./cards/DesignerCard";
+import ModeCard from "./cards/ModeCard";
 ---
 
 <section>
@@ -19,10 +20,13 @@ import DesignerCard from "./cards/DesignerCard";
       <MonomodCard client:idle />
       <ResumeCard client:idle />
       <FigmaCommunityCard client:idle />
+      <ModeCard client:idle/>
+
+      <DesignerCard client:idle />
+
       <LexingtonCard client:idle />
       <GithubCard client:only="react" />
       <GlobeCard client:idle />
-      <DesignerCard client:idle />
     </div>
   </div>
 </section>

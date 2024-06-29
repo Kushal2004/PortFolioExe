@@ -4,15 +4,15 @@ const LexingtonCard = () => {
   return (
     <a
       href="https://lexingtonthemes.com/"
-      className="lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 hover:ring-primary/5 bg-white dark:bg-secondary dark:hover:ring-white/20 overflow-hidden duration-300 shadow-xl dark:shadow-thick rounded-3xl p-8"
+      className="lg:row-span-1 ring-1 dark:ring-white/10 ring-primary/5 hover:ring-primary/5 bg-white dark:bg-secondary dark:hover:ring-white/20 overflow-hidden duration-300 shadow-xl dark:shadow-thick rounded-3xl p-8"
     >
-      <div className="-mr-24">
+      {/* <div className="-mr-24">
         <img
           src="/images/lexington.png"
           className="rounded-2xl object-cover ring-1 h-64 w-full lg:h-auto dark:ring-white/10 ring-primary/5 bg-tertiary"
           alt=""
         />
-      </div>
+      </div> */}
       <div className="mt-8">
         <div className="flex flex-wrap">
           <div className="flex items-center text-sm font-medium text-primary dark:text-white">
