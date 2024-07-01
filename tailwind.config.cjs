@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
 const svgToDataUri = require("mini-svg-data-uri");
+const { DarkModeSwitch } = require('react-toggle-dark-mode');
 const flattenColorPalette = require("tailwindcss/lib/util/flattenColorPalette").default;
 
 function addVariablesForColors({ addBase, theme }) {
@@ -15,6 +16,9 @@ function addVariablesForColors({ addBase, theme }) {
 }
 
 module.exports = {
+  
+  darkMode: 'class',
+
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     fontSize: {

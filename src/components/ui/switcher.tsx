@@ -1,44 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
-const useDarkSide = () => {
-    const [theme, setTheme] = useState<string>(
-        typeof window !== 'undefined' && localStorage.theme ? localStorage.theme : 'light'
-    );
-    const colorTheme = theme === 'dark' ? 'light' : 'dark';
+const Switcher: React.FC = () => {
+    const [isDark, setIsDark] = useState<boolean>(() => {
+        if (localStorage.theme === 'dark') return true;
+        if (localStorage.theme === 'light') return false;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    });
 
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const root = window.document.documentElement;
-            root.classList.remove(colorTheme);
-            root.classList.add(theme);
-
-            // Save theme to Local Storage
-            localStorage.setItem('theme', theme);
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
         }
-    }, [theme, colorTheme]);
+    }, [isDark]);
 
-    return [colorTheme, setTheme] as const;
-};
-
-const Switcher: React.FC = () => {
-    const [colorTheme, setTheme] = useDarkSide();
-    const [darkSide, setDarkSide] = useState<boolean>(colorTheme === "light");
-
-    const toggleDarkMode = (checked: boolean) => {
-        setTheme(colorTheme);
-        setDarkSide(checked);
+    const handleSwitchChange = (checked: boolean) => {
+        setIsDark(checked);
     };
 
     return (
         <div className="m-16 flex flex-col items-center">
             <DarkModeSwitch
-                checked={darkSide}
-                onChange={toggleDarkMode}
+                checked={isDark}
+                onChange={handleSwitchChange}
                 size={56}
             />
             <h3 className="text-gray-800 dark:text-gray-300 pt-4">
-                {colorTheme === 'light' ? "Dark mode" : "Light mode"}
+                {isDark ? 'Dark mode' : 'Light mode'}
             </h3>
         </div>
     );
