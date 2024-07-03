@@ -3,17 +3,19 @@ import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
 const Switcher: React.FC = () => {
     const [isDark, setIsDark] = useState<boolean>(() => {
-        if (localStorage.theme === 'dark') return true;
-        if (localStorage.theme === 'light') return false;
-        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+            return localStorage.getItem('theme') === 'dark';
+        }
+        return true; // Default to dark mode if no theme is set in localStorage
     });
 
     useEffect(() => {
+        const root = window.document.documentElement;
         if (isDark) {
-            document.documentElement.classList.add('dark');
+            root.classList.add('dark');
             localStorage.setItem('theme', 'dark');
         } else {
-            document.documentElement.classList.remove('dark');
+            root.classList.remove('dark');
             localStorage.setItem('theme', 'light');
         }
     }, [isDark]);
