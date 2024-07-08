@@ -14,11 +14,18 @@
     "@astrojs/tailwind": "^5.0.3",
     "@tailwindcss/typography": "^0.5.10",
     "@types/react": "^18.3.3",
-    "astro": "^4.0.4"
+    "astro": "^4.0.4",
+    "postcss": "^8.4.39",
+    "postcss-preset-mantine": "^1.15.0",
+    "postcss-simple-vars": "^7.0.1"
   },
   "dependencies": {
     "@astrojs/react": "^3.5.0",
     "@astrolib/seo": "^1.0.0-beta.5",
+    "@mantine/core": "^7.11.1",
+    "@mantine/form": "^7.11.1",
+    "@mantine/hooks": "^7.11.1",
+    "@radix-ui/react-label": "^2.1.0",
     "@react-spring/web": "^9.7.3",
     "@react-three/drei": "^9.106.0",
     "@react-three/fiber": "^8.16.8",

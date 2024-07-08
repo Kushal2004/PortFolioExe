@@ -14,11 +14,13 @@ export const AuroraBackground = ({
   ...props
 }: AuroraBackgroundProps) => {
   return (
-    <main  className="ring-1 lg:row-span-2 flex flex-col justify-between group hover:ring-primary/10 dark:hover:ring-white/20 duration-300 h-full dark:ring-white/10 ring-primary/5 lg:row-start-2 md:grid-cols-2 md:grid lg:gap-0 md:items-center md:gap-12 lg:grid-cols-none lg:col-start-2 lg:col-span-2 rounded-3xl  p-8 bg-white dark:bg-secondary shadow-xl dark:shadow-thick"
+    <main  className="ring-1 lg:row-span-2 flex flex-col justify-between group hover:ring-primary/10 dark:hover:ring-white/20 duration-300 h-full dark:ring-white/10 ring-primary/5 lg:row-start-2 md:grid-cols-2 
+    md:grid lg:gap-0 md:items-center md:gap-12 lg:grid-cols-none 
+    lg:col-start-2 lg:col-span-2 rounded-3xl   p-0 bg-white dark:bg-secondary shadow-xl dark:shadow-thick "
 >
       <div
         className={cn(
-          "relative flex flex-col  p-10 rounded-3xl h-[100vh] items-center justify-center bg-zinc-50 dark:bg-zinc-900  text-slate-950 transition-bg",
+          "relative flex flex-col w-100  overflow-hidden p-8 rounded-3xl h-[100%] items-center justify-center bg-zinc-50 dark:bg-zinc-900  text-slate-950 transition-bg",
           className
         )}
         {...props}
