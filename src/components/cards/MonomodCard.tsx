@@ -4,6 +4,7 @@ import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { cn } from '@/utils/cn';
 import { Textarea } from '../ui/Textarea';
+import { motion } from 'framer-motion';
 
 const BottomGradient = () => {
   return (
@@ -37,7 +38,16 @@ const MonomodCard: React.FC = () => {
   return (
     <AuroraBackground>
 
-        <div className='p-3 z-10 '>
+      <motion.div
+        initial={{ opacity: 0.0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut",
+
+        }}className='p-3 hover:z-10 '>
+
           <p className="text-xl tracking-tight font-medium text-primary dark:text-white md:text-6xl">
             Monomod
           </p>
@@ -47,7 +57,6 @@ const MonomodCard: React.FC = () => {
             <br />
             Monomod streamlines the design process with a fixed monthly rate and limitless design requests.
             Say goodbye to phone calls and extensive contracts;
-            {/* reach out to Monomod directly at any time. Embrace flexibility, pause or terminate your subscription whenever you need. */}
           </p>
           <form className="my-8" onSubmit={handleSubmit}>
             <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
@@ -76,6 +85,8 @@ const MonomodCard: React.FC = () => {
               <BottomGradient />
             </button>
           </form>
+          </motion.div>
+
           <div className="iframe-container ">
             <style>{`
             .iframe-container {
@@ -104,7 +115,7 @@ const MonomodCard: React.FC = () => {
               loading="lazy"
             ></iframe>
           </div>
-        </div>
+        
     </AuroraBackground>
   );
 };
