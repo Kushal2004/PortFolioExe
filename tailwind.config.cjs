@@ -111,6 +111,7 @@ module.exports = {
         secondary: "#1a1a1a",
         tertiary: "#262626",
         white: "#ececec",
+        Darkblue:"#111827"
       },
       borderRadius: {
         "4xl": "2rem",
