@@ -37,7 +37,7 @@ const MonomodCard: React.FC = () => {
   return (
     <AuroraBackground>
 
-        <div className='p-3 z-10'>
+        <div className='p-3 z-10 '>
           <p className="text-xl tracking-tight font-medium text-primary dark:text-white md:text-6xl">
             Monomod
           </p>
@@ -72,7 +72,7 @@ const MonomodCard: React.FC = () => {
               className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
               type="submit"
             >
-              Sign up &rarr;
+              Submit &rarr;
               <BottomGradient />
             </button>
           </form>
@@ -82,7 +82,7 @@ const MonomodCard: React.FC = () => {
              
               width: 100%;
               height: 0;
-              padding-bottom: 56.25%; /* 16:9 aspect ratio */
+              padding-bottom: 35.25%; /* 16:9 aspect ratio */
               position: relative;
               overflow: hidden;
               border: none;

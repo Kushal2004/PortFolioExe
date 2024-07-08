@@ -16,19 +16,20 @@ export const AuroraBackground = ({
   return (
     <main  className="ring-1 lg:row-span-2 flex flex-col justify-between group hover:ring-primary/10 dark:hover:ring-white/20 duration-300 h-full dark:ring-white/10 ring-primary/5 lg:row-start-2 md:grid-cols-2 
     md:grid lg:gap-0 md:items-center md:gap-12 lg:grid-cols-none 
-    lg:col-start-2 lg:col-span-2 rounded-3xl   p-0 bg-white dark:bg-secondary shadow-xl dark:shadow-thick "
+    lg:col-start-2 lg:col-span-2 rounded-3xl  p-0 bg-white dark:bg-secondary shadow-xl dark:shadow-thick "
 >
       <div
         className={cn(
-          "relative flex flex-col w-100  overflow-hidden p-8 rounded-3xl h-[100%] items-center justify-center bg-zinc-50 dark:bg-zinc-900  text-slate-950 transition-bg",
+          "relative flex flex-col  overflow-hidden p-8 rounded-3xl h-[100%] items-center justify-center bg-zinc-50 dark:bg-zinc-900  text-slate-950 transition-bg",
           className
         )}
         {...props}
       >
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden ">
           <div
             //   I'm sorry but this is what peak developer performance looks like // trigger warning
             className={cn(
+              
               `
             [--white-gradient:repeating-linear-gradient(100deg,var(--white)_0%,var(--white)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--white)_16%)]
             [--dark-gradient:repeating-linear-gradient(100deg,var(--black)_0%,var(--black)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--black)_16%)]
