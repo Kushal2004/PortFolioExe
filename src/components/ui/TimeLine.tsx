@@ -3,7 +3,7 @@ import React from 'react';
 const Timeline: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto ps-10 pe-3 mt-10   relative ">
-      <h1 className="font-bold text-xl md:text-2xl md:leading-tight text-zinc-50 max-w-3xl">Here's a<span className="text-cyan-500" > timeline</span> of what I've been up to:</h1>      
+      <h1 className="font-bold text-xl md:text-2xl md:leading-tight text-black dark:text-zinc-50 max-w-3xl">Here's a<span className="text-cyan-500" > timeline</span> of what I've been up to:</h1>      
 
 
       <div className="max-w-3xl mx-auto divide-zinc-800 relative">
@@ -15,8 +15,8 @@ const Timeline: React.FC = () => {
         
         {/* Year 2023 */}
         <div className="m-1">
-          <h1 className="text-xl font-bold text-zinc-200 my-8 relative">
-            <div className="h-3 md:h-4 w-3 md:w-4 border-2 border-cyan-500 bg-zinc-800 rounded-full absolute -left-[20px] md:-left-[29px] top-2 md:top-1"></div>
+          <h1 className="text-xl font-bold text-zinc-700 dark:text-zinc-200 my-8 relative">
+            <div className="h-3 md:h-4 w-3 md:w-4 border-2  border-cyan-500 bg-white dark:bg-zinc-800 rounded-full absolute -left-[20px] md:-left-[29px] top-2 md:top-2"></div>
             2024
           </h1>
           <div className="mb-8">
@@ -48,9 +48,9 @@ const Timeline: React.FC = () => {
         </div>
          {/* Year 2023 */}
          <div>
-          <h1 className="text-xl font-bold text-zinc-200 my-8 relative">
-            <div className="h-3 md:h-4 w-3 md:w-4 border-2 border-cyan-500 bg-zinc-800 rounded-full absolute -left-[20px] md:-left-[26px] top-2 md:top-1"></div>
-            2023
+         <h1 className="text-xl font-bold text-zinc-700 dark:text-zinc-200 my-8 relative">
+         <div className="h-3 md:h-4 w-3 md:w-4 border-2  border-cyan-500 bg-white dark:bg-zinc-800 rounded-full absolute -left-[20px] md:-left-[26px] top-2 md:top-2"></div>
+         2023
           </h1>
           <div className="mb-8">
             <div className="flex flex-row space-x-2 items-start my-2">
