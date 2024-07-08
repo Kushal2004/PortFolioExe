@@ -3,6 +3,7 @@ import { AuroraBackground } from '../ui/aurora-background';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { cn } from '@/utils/cn';
+import { Textarea } from '../ui/Textarea';
 
 const BottomGradient = () => {
   return (
@@ -65,7 +66,7 @@ const MonomodCard: React.FC = () => {
             </LabelInputContainer>
             <LabelInputContainer className="mb-4">
               <Label htmlFor="body">Message</Label>
-              <textarea id="body" className="form-control" placeholder="Textarea"></textarea>
+              <Textarea id="body" className="form-control" placeholder="Textarea"></Textarea>
             </LabelInputContainer>
             <button
               className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
