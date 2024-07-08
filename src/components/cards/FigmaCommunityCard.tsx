@@ -3,8 +3,8 @@ import { Meteors } from '../ui/meteors';
 
 const FigmaCommunityCard = () => {
   return (
- 
-     <div className="overflow:hidden lg:row-start-3 items-center h-full flex flex-col justify-center relative rounded-3xl  dark:ring-white/10 ring-primary/5">
+
+    <div className="overflow:hidden lg:row-start-3 items-center h-full flex flex-col justify-center relative rounded-3xl  dark:ring-white/10 ring-primary/5">
       <div className=" w-full max-w-xs">
         <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
         <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
@@ -24,21 +24,21 @@ const FigmaCommunityCard = () => {
               />
             </svg>
           </div>
- 
-          <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-            Meteors because they&apos;re cool
+
+          <h1 className="font-bold text-xl text-white mb-4 relative ">
+          Catch Up on My Latest Blog and Projects!
           </h1>
- 
-          <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-            I don&apos;t know what to write so I&apos;ll just paste something
-            cool here. One more sentence because lorem ipsum is just
-            unacceptable. Won&apos;t ChatGPT the shit out of this.
+
+          <p className="font-normal text-base text-slate-500 my-5 relative ">
+          Discover my latest blog posts, projects, and publications!
+          <br /> Don't miss out—new content every week, covering the latest trends and insights in technology and creativity.
           </p>
- 
+
+
           <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
             Explore
           </button>
- 
+
           {/* Meaty part - Meteor effect */}
           <Meteors number={20} />
         </div>
