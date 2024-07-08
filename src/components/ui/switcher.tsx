@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import { isDarkGlobe } from '../cards/GlobeCard';
 
 const Switcher: React.FC = () => {
     const [isDark, setIsDark] = useState<boolean>(() => {
@@ -22,6 +23,8 @@ const Switcher: React.FC = () => {
 
     const handleSwitchChange = (checked: boolean) => {
         setIsDark(checked);
+        // Additional logic to refresh the globe based on the theme change
+        isDarkGlobe();
     };
 
     return (

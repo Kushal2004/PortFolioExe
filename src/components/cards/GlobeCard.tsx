@@ -1,37 +1,65 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
 
 const World = dynamic(() => import("../ui/globe").then((m) => m.World), {
   ssr: false,
 });
 
+export const isDarkGlobe = () => {
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+    return localStorage.getItem('theme') === 'dark';
+  }
+  return true; // Default to dark mode if no theme is set in localStorage
+};
+
 function GlobeDemo() {
-  const globeConfig = {
-    pointSize: 4,
+  const darkThemeColors = {
     globeColor: "#062056",
-    showAtmosphere: true,
     atmosphereColor: "#FFFFFF",
-    atmosphereAltitude: 0.1,
     emissive: "#062056",
-    emissiveIntensity: 0.1,
-    shininess: 0.9,
     polygonColor: "rgba(255,255,255,0.7)",
     ambientLight: "#38bdf8",
     directionalLeftLight: "#ffffff",
     directionalTopLight: "#ffffff",
     pointLight: "#ffffff",
+    colors : ["#06b6d4", "#3b82f6", "#6366f1"]
+  };
+
+  const lightThemeColors = {
+    globeColor: "#cce4ff", // Light Blue
+    atmosphereColor: "#ffffff", // White
+    emissive: "#cce4ff", // Light Blue
+    polygonColor: "rgba(0, 0, 0, 0.9)", // Darker Gray
+    ambientLight: "#a1c4fd", // Light Blue
+    directionalLeftLight: "#ffffff", // White
+    directionalTopLight: "#ffffff", // White
+    pointLight: "#ffffff", // White
+    colors : ["#0c2d6b", "#1e3a87", "#2e3f75"]
+
+};
+
+
+  // Choose colors based on the theme
+  const chosenColors = isDarkGlobe() ? darkThemeColors : lightThemeColors;
+
+  // Merge common configuration with chosen colors
+  const globeConfig = {
+    pointSize: 4,
+    showAtmosphere: true,
+    atmosphereAltitude: 0.1,
+    shininess: 0.9,
     arcTime: 1000,
     arcLength: 0.9,
     rings: 1,
     maxRings: 3,
     initialPosition: { lat: 22.3193, lng: 114.1694 },
     autoRotate: true,
-    autoRotateSpeed: 0.5,
+    autoRotateSpeed: 0.7,
+    ...chosenColors, // Spread chosen colors into globeConfig
   };
-  
-  const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+
+   
   const sampleArcs = [
     {
       order: 1,
@@ -40,7 +68,7 @@ function GlobeDemo() {
       endLat: -22.9068,
       endLng: -43.1729,
       arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 1,
@@ -49,7 +77,7 @@ function GlobeDemo() {
       endLat: 3.139,
       endLng: 101.6869,
       arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 1,
@@ -58,7 +86,7 @@ function GlobeDemo() {
       endLat: -1.303396,
       endLng: 36.852443,
       arcAlt: 0.5,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 2,
@@ -67,7 +95,7 @@ function GlobeDemo() {
       endLat: 35.6762,
       endLng: 139.6503,
       arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 2,
@@ -76,7 +104,7 @@ function GlobeDemo() {
       endLat: 3.139,
       endLng: 101.6869,
       arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 2,
@@ -85,7 +113,7 @@ function GlobeDemo() {
       endLat: 36.162809,
       endLng: -115.119411,
       arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 3,
@@ -94,7 +122,7 @@ function GlobeDemo() {
       endLat: 22.3193,
       endLng: 114.1694,
       arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 3,
@@ -103,7 +131,7 @@ function GlobeDemo() {
       endLat: 40.7128,
       endLng: -74.006,
       arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 3,
@@ -112,7 +140,7 @@ function GlobeDemo() {
       endLat: 51.5072,
       endLng: -0.1276,
       arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 4,
@@ -121,7 +149,7 @@ function GlobeDemo() {
       endLat: -15.595412,
       endLng: -56.05918,
       arcAlt: 0.5,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 4,
@@ -130,7 +158,7 @@ function GlobeDemo() {
       endLat: 22.3193,
       endLng: 114.1694,
       arcAlt: 0.7,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 4,
@@ -139,7 +167,7 @@ function GlobeDemo() {
       endLat: 48.8566,
       endLng: -2.3522,
       arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 5,
@@ -148,7 +176,7 @@ function GlobeDemo() {
       endLat: 51.5072,
       endLng: -0.1276,
       arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 5,
@@ -157,7 +185,7 @@ function GlobeDemo() {
       endLat: -33.8688,
       endLng: 151.2093,
       arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 5,
@@ -166,7 +194,7 @@ function GlobeDemo() {
       endLat: 48.8566,
       endLng: -2.3522,
       arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 6,
@@ -175,7 +203,7 @@ function GlobeDemo() {
       endLat: 1.094136,
       endLng: -63.34546,
       arcAlt: 0.7,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 6,
@@ -184,7 +212,7 @@ function GlobeDemo() {
       endLat: 35.6762,
       endLng: 139.6503,
       arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 6,
@@ -193,7 +221,7 @@ function GlobeDemo() {
       endLat: 51.5072,
       endLng: -0.1276,
       arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 7,
@@ -202,7 +230,7 @@ function GlobeDemo() {
       endLat: -15.595412,
       endLng: -56.05918,
       arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 7,
@@ -211,7 +239,7 @@ function GlobeDemo() {
       endLat: 52.52,
       endLng: 13.405,
       arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 7,
@@ -220,7 +248,7 @@ function GlobeDemo() {
       endLat: 34.0522,
       endLng: -118.2437,
       arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 8,
@@ -229,7 +257,7 @@ function GlobeDemo() {
       endLat: -33.936138,
       endLng: 18.436529,
       arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 8,
@@ -238,7 +266,7 @@ function GlobeDemo() {
       endLat: 52.3676,
       endLng: 4.9041,
       arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 8,
@@ -247,7 +275,7 @@ function GlobeDemo() {
       endLat: 40.7128,
       endLng: -74.006,
       arcAlt: 0.5,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 9,
@@ -256,7 +284,7 @@ function GlobeDemo() {
       endLat: 34.0522,
       endLng: -118.2437,
       arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 9,
@@ -265,7 +293,7 @@ function GlobeDemo() {
       endLat: -22.9068,
       endLng: -43.1729,
       arcAlt: 0.7,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 9,
@@ -274,7 +302,7 @@ function GlobeDemo() {
       endLat: -34.6037,
       endLng: -58.3816,
       arcAlt: 0.5,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 10,
@@ -283,7 +311,7 @@ function GlobeDemo() {
       endLat: 28.6139,
       endLng: 77.209,
       arcAlt: 0.7,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 10,
@@ -292,7 +320,7 @@ function GlobeDemo() {
       endLat: 31.2304,
       endLng: 121.4737,
       arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 10,
@@ -301,7 +329,7 @@ function GlobeDemo() {
       endLat: 52.3676,
       endLng: 4.9041,
       arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 11,
@@ -310,7 +338,7 @@ function GlobeDemo() {
       endLat: 34.0522,
       endLng: -118.2437,
       arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 11,
@@ -319,7 +347,7 @@ function GlobeDemo() {
       endLat: 31.2304,
       endLng: 121.4737,
       arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 11,
@@ -328,7 +356,7 @@ function GlobeDemo() {
       endLat: 1.3521,
       endLng: 103.8198,
       arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 12,
@@ -337,7 +365,7 @@ function GlobeDemo() {
       endLat: 37.7749,
       endLng: -122.4194,
       arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 12,
@@ -346,7 +374,7 @@ function GlobeDemo() {
       endLat: 22.3193,
       endLng: 114.1694,
       arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 12,
@@ -355,7 +383,7 @@ function GlobeDemo() {
       endLat: 34.0522,
       endLng: -118.2437,
       arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 13,
@@ -364,7 +392,7 @@ function GlobeDemo() {
       endLat: 22.3193,
       endLng: 114.1694,
       arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 13,
@@ -373,7 +401,7 @@ function GlobeDemo() {
       endLat: 35.6762,
       endLng: 139.6503,
       arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 13,
@@ -382,7 +410,7 @@ function GlobeDemo() {
       endLat: -34.6037,
       endLng: -58.3816,
       arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
     {
       order: 14,
@@ -391,18 +419,27 @@ function GlobeDemo() {
       endLat: 21.395643,
       endLng: 39.883798,
       arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+      color: globeConfig.colors[Math.floor(Math.random() * (globeConfig.colors.length - 1))],
     },
   ];
 
+  useEffect(() => {
+    // Logic to refresh or re-render the globe when theme changes
+    // You can add any specific logic here to handle theme changes
+    console.log("Theme changed:", isDarkGlobe() ? "Dark" : "Light");
+  }, [isDarkGlobe()]);
+
   return (
     <div className="shadow-xl dark:shadow-thick rounded-3xl p-8 lg:row-start-4 h-full flex flex-col justify-center items-center bg-white dark:bg-secondary">
-      <div className=" relative w-full max-w-[900px] aspect-square m-auto ">
-
-        <World data={sampleArcs} globeConfig={globeConfig} />
+      <div className="relative w-full max-w-[900px] aspect-square m-auto">
+        <World  data={sampleArcs} globeConfig={globeConfig} />
       </div>
     </div>
   );
 }
 
 export default GlobeDemo;
+
+function useTheme(): { theme: any; } {
+  throw new Error("Function not implemented.");
+}
