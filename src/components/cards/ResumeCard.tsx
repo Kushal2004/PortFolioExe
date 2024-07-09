@@ -5,7 +5,7 @@ const ResumeCard = () => {
     <div className="ring-1 dark:ring-white/10 ring-primary/5 flex flex-col justify-between items-center rounded-3xl shadow-xl dark:shadow-thick p-8 bg-white dark:bg-secondary overflow-hidden text-center lg:text-left">
       <div>
         <p className="text-xl text-primary dark:text-white lg:text-7xl tracking-tight">
-          Grab my résumé!
+          Grab my <span className="text-blue-500">résumé!</span>
         </p>
         <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 md:max-w-xs lg:max-w-none">
         Explore the highlights of my career by accessing my resume through this link..

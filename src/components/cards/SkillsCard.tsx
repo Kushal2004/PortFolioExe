@@ -20,7 +20,7 @@ const SkillsCard = () => {
   const skills = [
     { name: "HTML", icon: <FaHtml5 /> },
     { name: "CSS", icon: <FaCss3 /> },
-    { name: "JavaScript", icon: <FaJs /> },
+    { name: "JavaScript", icon: <FaJs  /> },
     { name: "React", icon: <FaReact /> },
     { name: "Tailwind CSS", icon: <FaBootstrap /> },
     { name: "Bootstrap", icon: <FaBootstrap /> },
@@ -52,10 +52,10 @@ const SkillsCard = () => {
   return (
     <div className="lg:row-span-1 ring-1 dark:ring-white/10 ring-primary/5 hover:ring-primary/5 dark:bg-secondary dark:hover:ring-white/20 overflow-hidden duration-300 shadow-xl dark:shadow-thick rounded-3xl p-6">
       <h2 className="dark:text-white text-dark text-4xl p-3 font-bold text-center">
-        Skills <span className="text-blue-400">& Tools</span>
+        Skills <span className="text-blue-500">& Tools</span>
       </h2>
       <InfiniteMovingCards items={WebSkills} direction="right" speed="normal" />
-      <InfiniteMovingCards items={skills.map((skill) => skill.icon)} direction="left" speed="normal" />
+      <InfiniteMovingCards className="[&_svg]:h-10 [&_svg]:w-10 [&_svg]:p-1" items={skills.map((skill) => skill.icon)} direction="left" speed="normal" />
       <InfiniteMovingCards items={SoftSkills} direction="right" speed="normal" />
     </div>
   );
