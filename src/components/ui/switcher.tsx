@@ -29,10 +29,7 @@ const Switcher: React.FC = () => {
 
     return (
         <div>
-        <p className="text-xl font-normal tracking-tight text-primary dark:text-white lg:text-8xl  flex ">
-          Go {isDark ? 'Light' : 'Dark'}!
-        </p>
-        <div className="mt-10  flex flex-col items-center">
+             <div className=" relative z-10 w-fit  left-[80%] flex flex-col items-center " >
             <DarkModeSwitch
                 checked={isDark}
                 onChange={handleSwitchChange}
@@ -40,6 +37,10 @@ const Switcher: React.FC = () => {
             />
 
         </div>
+        <p className="text-5xl  font-normal  relative bottom-10 tracking-tight text-primary dark:text-white lg:text-8xl   ">
+          Go {isDark ? 'Light' : 'Dark'}!
+        </p>
+       
         </div>
     );
 };

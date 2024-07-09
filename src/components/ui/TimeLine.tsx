@@ -10,7 +10,7 @@ const Timeline: React.FC = () => {
         
         {/* Vertical line connecting timeline */}
         <div className="absolute h-full w-[4px] bg-gradient-to-b from-transparent via-cyan-500 to-transparent -left-4 md:-left-5">
-          <span className="absolute z-20 h-[0.1rem] w-[0.1rem] rounded-[9999px] bg-blue-700 shadow-[0_0_0_1px_#ffffff10] rotate-[180deg] before:bg-gradient-to-l before:from-transparent before:via-blue-500 before:to-cyan-500 style_meteor__iBwXl left-1" style={{ visibility: 'visible', '--meteor-delay': '1s', '--meteor-duration': '2s', '--meteor-width': '80px' }}></span>
+          <span className="absolute z-20 h-[0.1rem] w-[0.1rem] rounded-[9999px] bg-blue-700 shadow-[0_0_0_1px_#ffffff10] rotate-[180deg] before:bg-gradient-to-l before:from-transparent before:via-blue-500 before:to-cyan-500 style_meteor__iBwXl left-1" ></span>
         </div>
         
         {/* Year 2023 */}
