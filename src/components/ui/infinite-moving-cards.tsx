@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { cn } from "@/utils/cn";
+import { FaHtml5 } from "react-icons/fa6";
+
 
 export const InfiniteMovingCards = ({
   items,
@@ -10,7 +12,7 @@ export const InfiniteMovingCards = ({
   pauseOnHover = true,
   className,
 }: {
-  items: string[];
+  items: (string | JSX.Element)[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
@@ -74,7 +76,7 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller  relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         className
       )}
     >
@@ -88,7 +90,7 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="w-[150px] max-w-full relative rounded-lg border border-gray-600 flex-shrink-0 px-3 py-1 text-white bg-gray-700"
+            className=" px-3 py-2 rounded-lg border border-gray-600 flex-shrink-0 text-gray-600 "
             key={idx}
           >
             {item}

@@ -49,14 +49,14 @@ const MonomodCard: React.FC = () => {
         }}className='p-3 hover:z-10 '>
 
           <p className="text-xl tracking-tight font-medium text-primary dark:text-white md:text-6xl">
-            Monomod
+            Get in touch
           </p>
           <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
-            Design & development subscriptions for startups.
+            Design & development
             <br />
             <br />
-            Monomod streamlines the design process with a fixed monthly rate and limitless design requests.
-            Say goodbye to phone calls and extensive contracts;
+            Need a committed developer for your project? Have ideas to discuss? Contact me! I'm available for freelancing, collaborative efforts, and interesting challenges. <br />
+            No phone calls or extensive contracts required.
           </p>
           <form className="my-8" onSubmit={handleSubmit}>
             <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">

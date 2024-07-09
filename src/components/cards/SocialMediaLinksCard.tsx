@@ -1,9 +1,7 @@
 import React from 'react';
 import { FollowerPointerCard } from "../ui/following-pointer";
 import {
-  IconBrandGithub,
-  IconBrandGoogle,
-  IconBrandOnlyfans,
+  IconBrandOnlyfans
 } from "@tabler/icons-react";
 
 const SocialMediaLinksCard = () => {
