@@ -2,6 +2,8 @@
 
 import React from "react";
 import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
+import { RiTailwindCssFill } from "react-icons/ri";
+
 import {
   FaHtml5,
   FaCss3,
@@ -13,7 +15,7 @@ import {
   FaDatabase,
   FaNodeJs, 
   FaServer,
-  FaGithub  
+  FaGithub,
 } from "react-icons/fa";
 
 const SkillsCard = () => {
@@ -23,7 +25,7 @@ const SkillsCard = () => {
     { name: "JavaScript", icon: <FaJs  /> },
     { name: "React", icon: <FaReact /> },
     { name: "Tailwind CSS", icon: <FaBootstrap /> },
-    { name: "Bootstrap", icon: <FaBootstrap /> },
+    { name: "Bootstrap", icon: <RiTailwindCssFill />},
     { name: "Python", icon: <FaPython /> },
     { name: "Java", icon: <FaJava /> },
     { name: "MySQL", icon: <FaDatabase /> },
