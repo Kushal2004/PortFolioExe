@@ -44,7 +44,7 @@ const GetInTouchCard: React.FC = () => {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="p-3 hover:z-10"
+        className="p-3 z-10"
       >
         <p className="text-xl tracking-tight font-medium text-primary dark:text-white md:text-6xl">
           Get in touch
@@ -57,13 +57,13 @@ const GetInTouchCard: React.FC = () => {
           No phone calls or extensive contracts required.
         </p>
         <form
-          className="my-8"
+          className="my-8 opacity-5"
           method="POST"
           action="https://formsubmit.co/el/poyozu"
           encType="multipart/form-data"
           onSubmit={handleSubmit}
         >
-          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
+          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4  ">
             <LabelInputContainer>
               <Input id="firstname" name="firstname" placeholder="Name" type="text" />
             </LabelInputContainer>

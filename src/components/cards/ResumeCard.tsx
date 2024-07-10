@@ -12,7 +12,7 @@ const ResumeCard = () => {
         </p>
       </div>
       <div className="w-full mt-8 md:max-w-xs lg:max-w-none">
-       <a href="src\data\SDE.pdf" download="Kushal_Resume" className=''>
+       <a href="/asserts/SDE.pdf" download="Kushal_Resume" className=''>
        <button
         
         type="button"

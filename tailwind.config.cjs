@@ -100,6 +100,11 @@ module.exports = {
       ],
     },
     extend: {
+      opacity: {
+        '5': '0.45',
+        '20': '0.2',
+        '95': '0.95',
+       },
       boxShadow: {
         input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
       },
