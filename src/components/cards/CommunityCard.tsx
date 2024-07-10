@@ -7,13 +7,7 @@ const CommunityCard = () => {
     <div className="overflow:hidden lg:row-start-3 items-center h-full flex flex-col justify-center relative rounded-3xl  dark:ring-white/10 ring-primary/5">
 
       <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 sm:w-100 bg-white dark:bg-zinc-900">
-        <img
-          src="public/images/monomod.png"
-          alt="jordans"
-          height="100"
-          width="100"
-          className="object-contain"
-        />
+    
         <p className="text-base sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">
         Catch Up on My Latest Blog and Projects!
         </p>
