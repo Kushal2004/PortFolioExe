@@ -15,7 +15,7 @@ const IntroductionCard = () => {
 
       <div className="relative flex items-center gap-x-4">
         <img
-          src="/images/avatar.jpg"
+          src="public\images\Profile.jpg"
           alt=""
           className="h-10 w-10 rounded-full ring-1 dark:ring-white/10 ring-primary/5"
         />
