@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteors } from '../ui/meteors';
 
-const FigmaCommunityCard = () => {
+const CommunityCard = () => {
   return (
 
     <div className="overflow:hidden lg:row-start-3 items-center h-full flex flex-col justify-center relative rounded-3xl  dark:ring-white/10 ring-primary/5">
@@ -47,4 +47,4 @@ const FigmaCommunityCard = () => {
   );
 };
 
-export default FigmaCommunityCard;
+export default CommunityCard;
