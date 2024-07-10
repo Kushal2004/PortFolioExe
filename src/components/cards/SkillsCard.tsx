@@ -52,7 +52,7 @@ const SkillsCard = () => {
   ];
 
   return (
-    <div className="lg:row-span-1 ring-1 dark:ring-white/10 ring-primary/5 hover:ring-primary/5 dark:bg-secondary dark:hover:ring-white/20 overflow-hidden duration-300 shadow-xl dark:shadow-thick rounded-3xl p-6">
+    <div className="lg:row-span-1 ring-1 bg-white dark:ring-white/10 ring-primary/5 hover:ring-primary/5 dark:bg-secondary dark:hover:ring-white/20 overflow-hidden duration-300 shadow-xl dark:shadow-thick rounded-3xl p-6">
       <h2 className="dark:text-white text-dark text-4xl p-3 font-bold text-center">
         Skills <span className="text-blue-500">& Tools</span>
       </h2>

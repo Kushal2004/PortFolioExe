@@ -1,21 +1,37 @@
 import React from 'react';
-import { Meteors } from '../ui/meteors';
+import { BackgroundGradient } from '../ui/background-gradient'; // Verify this path
+import Image from "next/image";
 
 const CommunityCard = () => {
   return (
-
     <div className="overflow:hidden lg:row-start-3 items-center h-full flex flex-col justify-center relative rounded-3xl  dark:ring-white/10 ring-primary/5">
-      <div className=" w-full max-w-xs">
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
-        <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
-          <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
+
+      <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 sm:w-100 bg-white dark:bg-zinc-900">
+        <img
+          src="public/images/monomod.png"
+          alt="jordans"
+          height="100"
+          width="100"
+          className="object-contain"
+        />
+        <p className="text-base sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">
+        Catch Up on My Latest Blog and Projects!
+        </p>
+ 
+        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+        Discover my latest blog posts, projects, and publications!
+        <br /> Don't miss out—new content every week, covering the latest trends and insights in technology and creativity.
+        </p>
+        <button className="rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1  bg-black mt-4 text-xs font-bold dark:bg-zinc-800">
+          <span>Explore </span>
+          <div className="h-5 w-5 rounded-full border flex items-center justify-center border-gray-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="h-2 w-2 text-gray-300"
+              className="h-2 w-2 text-gray-300 -rotate-90 "
             >
               <path
                 strokeLinecap="round"
@@ -24,25 +40,8 @@ const CommunityCard = () => {
               />
             </svg>
           </div>
-
-          <h1 className="font-bold text-xl text-white mb-4 relative ">
-          Catch Up on My Latest Blog and Projects!
-          </h1>
-
-          <p className="font-normal text-base text-slate-500 my-5 relative ">
-          Discover my latest blog posts, projects, and publications!
-          <br /> Don't miss out—new content every week, covering the latest trends and insights in technology and creativity.
-          </p>
-
-
-          <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
-            Explore
-          </button>
-
-          {/* Meaty part - Meteor effect */}
-          <Meteors number={20} />
-        </div>
-      </div>
+        </button>
+      </BackgroundGradient>
     </div>
   );
 };

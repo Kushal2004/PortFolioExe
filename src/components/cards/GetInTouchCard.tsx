@@ -29,12 +29,11 @@ const LabelInputContainer = ({
   );
 };
 
-const MonomodCard: React.FC = () => {
+const GetInTouchCard: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Form submitted');
   };
-
   return (
     <AuroraBackground>
 
@@ -87,28 +86,8 @@ const MonomodCard: React.FC = () => {
           </form>
           </motion.div>
 
-          <div className="iframe-container ">
-            <style>{`
-            .iframe-container {
-             
-              width: 100%;
-              height: 0;
-              padding-bottom: 35.25%; /* 16:9 aspect ratio */
-              position: relative;
-              overflow: hidden;
-              border: none;
-            }
-          
-            .iframe-container iframe {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              border: none;
-            }
-          `}</style>
-            <iframe
+          <div className="w-[100%] pb-4 h-60 relative overflow-visible   ">
+            <iframe className='absolute top-0 left-0 w-[100%] h-[100%]   '
               id="omg"
               src="https://mhasbini.com/miscs/react-chrome-dino-demo/index.html"
               title="Dino Game"
@@ -120,4 +99,4 @@ const MonomodCard: React.FC = () => {
   );
 };
 
-export default MonomodCard;
+export default GetInTouchCard;
