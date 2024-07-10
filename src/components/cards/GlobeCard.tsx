@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 
 const World = dynamic(() => import("../ui/globe").then((m) => m.World), {
   ssr: false,
+  
+
 });
 
 export const isDarkGlobe = () => {
@@ -440,6 +442,4 @@ function GlobeDemo() {
 
 export default GlobeDemo;
 
-function useTheme(): { theme: any; } {
-  throw new Error("Function not implemented.");
-}
+
