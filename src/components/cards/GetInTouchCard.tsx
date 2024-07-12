@@ -57,7 +57,7 @@ const GetInTouchCard: React.FC = () => {
           No phone calls or extensive contracts required.
         </p>
         <form
-          className="my-8 opacity-5"
+          className="my-8 dark:opacity-5 "
           method="POST"
           action="https://formsubmit.co/el/poyozu"
           encType="multipart/form-data"
