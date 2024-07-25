@@ -1,5 +1,6 @@
 'use client';
 import React, { useCallback, useEffect, useState } from 'react';
+import ActivityCalendar from 'react-activity-calendar';
 import Calendar, { ThemeInput, type Props as ActivityCalendarProps } from 'react-activity-calendar';
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";  
@@ -13,6 +14,7 @@ async function fetchCalendarData(username: string): Promise<ApiResponse> {
     `https://github-contributions-api.jogruber.de/v4/${username}?y=last`
   );
   const data: ApiResponse | ApiErrorResponse = await response.json();
+  console.log(data)
 
   if (!response.ok) {
     throw Error(
@@ -29,7 +31,6 @@ const GithubCalendar: React.FunctionComponent<Props> = ({ username, ...props }) 
   const [data, setData] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
-
   const fetchData = useCallback(() => {
     setLoading(true);
     setError(null);
@@ -40,6 +41,7 @@ const GithubCalendar: React.FunctionComponent<Props> = ({ username, ...props }) 
   }, [username]);
 
   useEffect(fetchData, [fetchData]);
+
 
   if (error) {
     return (
@@ -58,42 +60,42 @@ const GithubCalendar: React.FunctionComponent<Props> = ({ username, ...props }) 
   }
 
   if (loading || !data) {
-    return <div >Loading...</div>;
+    return <div>Loading...</div>;
   }
+  const explicitTheme: ThemeInput = {
+    light: ['#f0f0f0', '#c4edde', '#7ac7c4', '#f73859', '#384259'],
+    dark: ['#383838', '#4D455D', '#7DB9B6', '#F5E9CF', '#E96479'],
+  };
 
   return (
-    <div className="dark:text-white  p-4">
-    <Calendar
-    renderBlock={(block, activity) =>
-      React.cloneElement(block, {
-        'data-tooltip-id': 'react-tooltip',
-        'data-tooltip-html': `${activity.count} activities on ${activity.date}`,
-      })
-    }
-      data={selectLastNDays(data.contributions)}
-      theme={{
-        light: ['#f0f0f0', '#c4edde', '#7ac7c4', '#f73859', '#384259'],
-        dark: ['#383838', '#4D455D', '#7DB9B6', '#F5E9CF', '#E96479'],
-      }}
-      blockMargin={6}
-      blockSize={20}
-      fontSize={15}
-      hideColorLegend={false}
-      showWeekdayLabels={true}
-      
-      {...props}
-      maxLevel={4}
-    />
-    <ReactTooltip id="react-tooltip" />
+    <div className="dark:text-white p-4">
+      <ActivityCalendar 
+  
+        renderBlock={(block, activity) =>
+          React.cloneElement(block, {
+            'data-tooltip-id': 'react-tooltip',
+            'data-tooltip-html': `${activity.count} activities on ${activity.date}`,
+          })
+        }
+        data={selectLastNDays(data.contributions)}
+        theme={explicitTheme}
+        blockMargin={6}
+        blockSize={20}
+        fontSize={15}
+        hideColorLegend={false}
+        showWeekdayLabels={true}
+        {...props}
+        maxLevel={4}
+      />
+      <ReactTooltip id="react-tooltip" />
     </div>
   );
 };
 
-
 interface Activity {
   date: string;
   count: number;
-  level: 0 | 1 | 2 | 3 | 4 ;
+  level: 0 | 1 | 2 | 3 | 4;
 }
 
 interface ApiResponse {
@@ -120,6 +122,5 @@ const selectLastNDays = (contributions: any) => {
     return activityDate >= startDate && activityDate <= today;
   });
 };
-
 
 export default GithubCalendar;

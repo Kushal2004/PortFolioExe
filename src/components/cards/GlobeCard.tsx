@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect , useState } from "react";
 import dynamic from "next/dynamic";
 
 const World = dynamic(() => import("../ui/globe").then((m) => m.World), {
@@ -8,25 +8,18 @@ const World = dynamic(() => import("../ui/globe").then((m) => m.World), {
 
 });
 
-export const isDarkGlobe = () => {
-  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-    return localStorage.getItem('theme') === 'dark';
-  }
-  return true; // Default to dark mode if no theme is set in localStorage
-};
+export const themeGlobal = "Dark"
+
+ export var isDarkGlobe = () => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme') === 'dark';
+    }
+    return true; // Default to dark mode if no theme is set in localStorage
+  };
+
 
 function GlobeDemo() {
-  const darkThemeColors = {
-    globeColor: "#062056",
-    atmosphereColor: "#FFFFFF",
-    emissive: "#062056",
-    polygonColor: "rgba(255,255,255,0.7)",
-    ambientLight: "#38bdf8",
-    directionalLeftLight: "#ffffff",
-    directionalTopLight: "#ffffff",
-    pointLight: "#ffffff",
-    colors : ["#06b6d4", "#3b82f6", "#6366f1"]
-  };
+  const [isDark, setIsDark] = useState(isDarkGlobe());
 
   const lightThemeColors = {
     globeColor: "#cce4ff", // Light Blue
@@ -43,10 +36,9 @@ function GlobeDemo() {
 
 
   // Choose colors based on the theme
-  const chosenColors = isDarkGlobe() ? darkThemeColors : lightThemeColors;
 
   // Merge common configuration with chosen colors
-  const globeConfig = {
+  const [globeConfig , setglobeConfig] = useState({
     pointSize: 4,
     showAtmosphere: true,
     atmosphereAltitude: 0.1,
@@ -58,8 +50,16 @@ function GlobeDemo() {
     initialPosition: { lat: 22.3193, lng: 114.1694 },
     autoRotate: true,
     autoRotateSpeed: 0.7,
-    ...chosenColors, // Spread chosen colors into globeConfig
-  };
+    globeColor: "#062056",
+    atmosphereColor: "#FFFFFF",
+    emissive: "#062056",
+    polygonColor: "rgba(255,255,255,0.7)",
+    ambientLight: "#38bdf8",
+    directionalLeftLight: "#ffffff",
+    directionalTopLight: "#ffffff",
+    pointLight: "#ffffff",
+    colors : ["#06b6d4", "#3b82f6", "#6366f1"]
+  })
 
    
   const sampleArcs = [
@@ -426,10 +426,10 @@ function GlobeDemo() {
   ];
 
   useEffect(() => {
-    // Logic to refresh or re-render the globe when theme changes
-    // You can add any specific logic here to handle theme changes
-    console.log("Theme changed:", isDarkGlobe() ? "Dark" : "Light");
-  }, [isDarkGlobe()]);
+    if(!isDarkGlobe()){
+      setglobeConfig({ ...globeConfig, ...lightThemeColors });
+    }
+  },[isDark]);
 
   return (
     <div className="shadow-xl dark:shadow-thick rounded-3xl  lg:row-start-4 h-full flex flex-col justify-center items-center bg-white dark:bg-secondary">
@@ -439,6 +439,7 @@ function GlobeDemo() {
     </div>
   );
 }
+
 
 export default GlobeDemo;
 

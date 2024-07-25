@@ -16,6 +16,7 @@ const CommunityCard = () => {
         Discover my latest blog posts, projects, and publications!
         <br /> Don't miss out—new content every week, covering the latest trends and insights in technology and creativity.
         </p>
+        <a href="https://kushal-blog.vercel.app/">
         <button className="rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1  bg-black mt-4 text-xs font-bold dark:bg-zinc-800">
           <span>Explore </span>
           <div className="h-5 w-5 rounded-full border flex items-center justify-center border-gray-500">
@@ -34,7 +35,7 @@ const CommunityCard = () => {
               />
             </svg>
           </div>
-        </button>
+        </button></a>
       </BackgroundGradient>
     </div>
   );
