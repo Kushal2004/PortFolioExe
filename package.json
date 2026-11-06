@@ -7,17 +7,25 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:panels": "node tests/panels.cjs",
+    "test:commands": "node tests/command-palette.cjs"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/tailwind": "^5.0.3",
+    "@playwright/test": "^1.65.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.7",
+    "@types/three": "^0.165.0",
     "astro": "^4.0.4",
     "postcss": "^8.4.39",
     "postcss-preset-mantine": "^1.15.0",
-    "postcss-simple-vars": "^7.0.1"
+    "postcss-simple-vars": "^7.0.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.21"
   },
   "dependencies": {
     "@astrojs/react": "^3.5.0",
@@ -33,10 +41,10 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.2.13",
     "mini-svg-data-uri": "^1.4.4",
-    "next": "^14.2.4",
     "react": "^18.3.1",
     "react-activity-calendar": "^2.2.11",
     "react-dom": "^18.3.1",
+    "react-grid-layout": "^2.3.0",
     "react-icons": "^5.2.1",
     "react-toggle-dark-mode": "^1.1.1",
     "react-tooltip": "^5.27.0",

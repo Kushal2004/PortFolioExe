@@ -1,5 +1,5 @@
-'use client';
 import React, { useCallback, useEffect, useState } from 'react';
+import { useTheme } from '../../utils/theme';
 import ActivityCalendar from 'react-activity-calendar';
 import Calendar, { ThemeInput, type Props as ActivityCalendarProps } from 'react-activity-calendar';
 import { Tooltip as ReactTooltip } from "react-tooltip";
@@ -14,7 +14,7 @@ async function fetchCalendarData(username: string): Promise<ApiResponse> {
     `https://github-contributions-api.jogruber.de/v4/${username}?y=last`
   );
   const data: ApiResponse | ApiErrorResponse = await response.json();
-  console.log(data)
+
 
   if (!response.ok) {
     throw Error(
@@ -28,6 +28,7 @@ async function fetchCalendarData(username: string): Promise<ApiResponse> {
 }
 
 const GithubCalendar: React.FunctionComponent<Props> = ({ username, ...props }) => {
+  const isDark = useTheme();
   const [data, setData] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
@@ -46,15 +47,15 @@ const GithubCalendar: React.FunctionComponent<Props> = ({ username, ...props }) 
   if (error) {
     return (
       <div>
-        Fetch failed! Contact{' '}
+        Contributions are temporarily unavailable. Visit{' '}
         <a
-          href=""
+          href="https://github.com/Kushal2004"
           className="inline-block transition duration-300 hover:-translate-y-px outline-none hover:text-primary-10 focus-visible:text-primary-10"
           target="_blank"
         >
           @Kushal2004
         </a>{' '}
-        immediately.
+        on GitHub.
       </div>
     );
   }
@@ -68,7 +69,7 @@ const GithubCalendar: React.FunctionComponent<Props> = ({ username, ...props }) 
   };
 
   return (
-    <div className="dark:text-white p-4">
+    <div className="calendar-fit w-full min-w-0 text-primary dark:text-white p-2">
       <ActivityCalendar 
   
         renderBlock={(block, activity) =>
@@ -78,7 +79,7 @@ const GithubCalendar: React.FunctionComponent<Props> = ({ username, ...props }) 
           })
         }
         data={selectLastNDays(data.contributions)}
-        theme={explicitTheme}
+        theme={explicitTheme} colorScheme={isDark ? "dark" : "light"}
         blockMargin={6}
         blockSize={20}
         fontSize={15}

@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
 import { cn } from "@/utils/cn";
 import { FaHtml5 } from "react-icons/fa6";
@@ -90,7 +88,7 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className=" px-3 py-2 rounded-lg border border-gray-600 flex-shrink-0 text-gray-600 "
+            className=" px-3 py-2 rounded-lg border border-gray-600 flex-shrink-0 text-gray-600 dark:text-zinc-300 "
             key={idx}
           >
             {item}

@@ -1,26 +1,9 @@
-"use client";
-import React, { useEffect , useState } from "react";
-import dynamic from "next/dynamic";
-
-const World = dynamic(() => import("../ui/globe").then((m) => m.World), {
-  ssr: false,
-  
-
-});
-
-export const themeGlobal = "Dark"
-
- export var isDarkGlobe = () => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme') === 'dark';
-    }
-    return true; // Default to dark mode if no theme is set in localStorage
-  };
-
+import React from "react";
+import { World } from "../ui/globe";
+import { useTheme } from "../../utils/theme";
 
 function GlobeDemo() {
-  const [isDark, setIsDark] = useState(isDarkGlobe());
-
+  const isDark = useTheme();
   const lightThemeColors = {
     globeColor: "#cce4ff", // Light Blue
     atmosphereColor: "#ffffff", // White
@@ -38,7 +21,7 @@ function GlobeDemo() {
   // Choose colors based on the theme
 
   // Merge common configuration with chosen colors
-  const [globeConfig , setglobeConfig] = useState({
+  const darkThemeColors = {
     pointSize: 4,
     showAtmosphere: true,
     atmosphereAltitude: 0.1,
@@ -59,7 +42,8 @@ function GlobeDemo() {
     directionalTopLight: "#ffffff",
     pointLight: "#ffffff",
     colors : ["#06b6d4", "#3b82f6", "#6366f1"]
-  })
+  };
+  const globeConfig = { ...darkThemeColors, ...(isDark ? {} : lightThemeColors) };
 
    
   const sampleArcs = [
@@ -425,16 +409,10 @@ function GlobeDemo() {
     },
   ];
 
-  useEffect(() => {
-    if(!isDarkGlobe()){
-      setglobeConfig({ ...globeConfig, ...lightThemeColors });
-    }
-  },[isDark]);
-
   return (
     <div className="shadow-xl dark:shadow-thick rounded-3xl  lg:row-start-4 h-full flex flex-col justify-center items-center bg-white dark:bg-secondary">
       <div className="relative w-full max-w-[900px] h-full max-h-[900px] aspect-square m-auto ">
-        <World  data={sampleArcs} globeConfig={globeConfig} />
+        <World key={isDark ? "dark" : "light"} data={sampleArcs} globeConfig={globeConfig} />
       </div>
     </div>
   );

@@ -11,12 +11,12 @@ const words = [
 
 const IntroductionCard = () => {
   return (
-    <div className="lg:row-span-2 ring-1 antialiased bg-grid-slate-300 dark:bg-black dark:bg-grid-white/[0.09] dark:ring-white/10 ring-primary/5  shadow-xl dark:shadow-thick rounded-3xl p-8">
+    <div className="introduction-card ring-1 antialiased bg-grid-slate-300 dark:bg-black dark:bg-grid-white/[0.09] dark:ring-white/10 ring-primary/5  shadow-xl dark:shadow-thick rounded-3xl p-8">
 
-      <div className="relative flex items-center gap-x-4">
+      <div className="relative flex items-center gap-x-4 [&>div]:min-w-0">
         <img
           src="/images/Profile.jpg"
-          alt=""
+          alt="K Kushal"
           className="h-10 w-10 rounded-full ring-1 dark:ring-white/10 ring-primary/5"
         />
         <div className="text-sm leading-6">

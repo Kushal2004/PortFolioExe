@@ -1,5 +1,4 @@
-"use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
@@ -235,20 +234,29 @@ export function WebGLRendererConfig() {
   const { gl, size } = useThree();
 
   useEffect(() => {
-    gl.setPixelRatio(window.devicePixelRatio);
+    gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     gl.setSize(size.width, size.height);
     gl.setClearColor(0xffaaff, 0);
-  }, []);
+  }, [gl, size.width, size.height]);
 
   return null;
 }
 
 export function World(props: WorldProps) {
   const { globeConfig } = props;
-  const scene = new Scene();
-  scene.fog = new Fog(0xffffff, 400, 2000);
+  const [interacting,setInteracting] = useState(false);
+  useEffect(()=>{
+    const workspace=document.querySelector(".panel-workspace");
+    if(!workspace) return;
+    const update=()=>setInteracting(workspace.classList.contains("is-interacting"));
+    const observer=new MutationObserver(update);observer.observe(workspace,{attributes:true,attributeFilter:["class"]});update();
+    return()=>observer.disconnect();
+  },[]);
+  const scene = useMemo(()=>{
+    const next=new Scene();next.fog=new Fog(0xffffff,400,2000);return next;
+  },[]);
   return (
-    <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 120, 1200)}>
+    <Canvas frameloop={interacting ? "never" : "always"} scene={scene} camera={{ fov:50, near:120, far:1200, position:[0,0,cameraZ] }}>
       <WebGLRendererConfig />
       <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
       <directionalLight

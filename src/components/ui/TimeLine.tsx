@@ -24,7 +24,7 @@ const Timeline: React.FC = () => {
               <svg stroke="currentColor" fill="none" strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden="true" className="text-blue-500 mt-[3px] flex-shrink-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              <span className="text-zinc-400 text-sm md:text-base">
+              <span className="text-zinc-600 dark:text-zinc-400 text-sm md:text-base">
                 Building a new startup, this time it's going to be a big one
               </span>
             </div>
@@ -32,7 +32,7 @@ const Timeline: React.FC = () => {
               <svg stroke="currentColor" fill="none" strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden="true" className="text-blue-500 mt-[3px] flex-shrink-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              <span className="text-zinc-400 text-sm md:text-base">
+              <span className="text-zinc-600 dark:text-zinc-400 text-sm md:text-base">
                 Started writing blogs as a daily habit. Won the Nobel prize for literature
               </span>
             </div>
@@ -40,7 +40,7 @@ const Timeline: React.FC = () => {
               <svg stroke="currentColor" fill="none" strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden="true" className="text-blue-500 mt-[3px] flex-shrink-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0"></path>
               </svg>
-              <span className="text-zinc-400 text-sm md:text-base">
+              <span className="text-zinc-600 dark:text-zinc-400 text-sm md:text-base">
               Started a podcast with my brother, we talk about the latest tech news
               </span>
             </div>
@@ -57,7 +57,7 @@ const Timeline: React.FC = () => {
               <svg stroke="currentColor" fill="none" strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden="true" className="text-blue-500 mt-[3px] flex-shrink-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              <span className="text-zinc-400 text-sm md:text-base">
+              <span className="text-zinc-600 dark:text-zinc-400 text-sm md:text-base">
               Mid life crisis and decided to change career
               </span>
             </div>
@@ -65,7 +65,7 @@ const Timeline: React.FC = () => {
               <svg stroke="currentColor" fill="none" strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden="true" className="text-blue-500 mt-[3px] flex-shrink-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              <span className="text-zinc-400 text-sm md:text-base">
+              <span className="text-zinc-600 dark:text-zinc-400 text-sm md:text-base">
               Ended up owning a farm and a small business
               </span>
             </div>
@@ -73,7 +73,7 @@ const Timeline: React.FC = () => {
               <svg stroke="currentColor" fill="none" strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden="true" className="text-blue-500 mt-[3px] flex-shrink-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0"></path>
               </svg>
-              <span className="text-zinc-400 text-sm md:text-base">
+              <span className="text-zinc-600 dark:text-zinc-400 text-sm md:text-base">
                 My brother went on to pursue a career in music, he's now a famous singer
               </span>
             </div>

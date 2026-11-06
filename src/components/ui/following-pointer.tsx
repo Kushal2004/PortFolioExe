@@ -28,10 +28,9 @@ export const FollowerPointerCard = ({
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (rect) {
-      const scrollX = window.scrollX;
-      const scrollY = window.scrollY;
-      x.set(e.clientX - rect.left + scrollX);
-      y.set(e.clientY - rect.top + scrollY);
+      const bounds = e.currentTarget.getBoundingClientRect();
+      x.set(e.clientX - bounds.left);
+      y.set(e.clientY - bounds.top);
     }
   };
   const handleMouseLeave = () => {

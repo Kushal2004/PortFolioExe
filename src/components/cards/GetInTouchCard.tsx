@@ -30,23 +30,19 @@ const LabelInputContainer = ({
 };
 
 const GetInTouchCard: React.FC = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('Form submitted');
-  };
   return (
     <AuroraBackground>
       <motion.div
-        initial={{ opacity: 0.0, y: 40 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{
           delay: 0.3,
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="p-3 z-10"
+        className="relative w-full"
       >
-        <p className="text-xl tracking-tight font-medium text-primary dark:text-white md:text-6xl">
+        <p className="text-xl tracking-tight font-medium text-primary dark:text-white sm:text-4xl">
           Get in touch
         </p>
         <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
@@ -57,25 +53,24 @@ const GetInTouchCard: React.FC = () => {
           No phone calls or extensive contracts required.
         </p>
         <form
-          className="my-8 dark:opacity-5 "
+          className="my-8"
           method="POST"
-          action="https://formsubmit.co/el/poyozu"
+          action="https://formsubmit.co/send2kushal@gmail.com"
           encType="multipart/form-data"
-          onSubmit={handleSubmit}
         >
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4  ">
             <LabelInputContainer>
-              <Input id="firstname" name="firstname" placeholder="Name" type="text" />
+              <Label htmlFor="firstname">Name</Label><Input required autoComplete="name" id="firstname" name="firstname" placeholder="Name" type="text" />
             </LabelInputContainer>
             <LabelInputContainer>
-              <Input id="email" name="email" placeholder="Your Mail" type="email" />
+              <Label htmlFor="email">Email</Label><Input required autoComplete="email" id="email" name="email" placeholder="Your Mail" type="email" />
             </LabelInputContainer>
           </div>
           <LabelInputContainer className="mb-4">
-            <Input id="subject" name="subject" placeholder="Subject" type="text" />
+            <Label htmlFor="subject">Subject</Label><Input required  id="subject" name="_subject" placeholder="Subject" type="text" />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
-            <Textarea id="body" name="body" className="form-control" placeholder="Type your message here "></Textarea>
+            <Label htmlFor="body">Message</Label><Textarea required rows={4} id="body" name="message" className="form-control" placeholder="Type your message here "></Textarea>
           </LabelInputContainer>
           <button
             className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
@@ -84,17 +79,8 @@ const GetInTouchCard: React.FC = () => {
             Submit &rarr;
             <BottomGradient />
           </button>
-        </form>
+        </form><p className="mb-4 text-sm">Or email <a className="text-blue-600 dark:text-blue-400 underline" href="mailto:send2kushal@gmail.com">send2kushal@gmail.com</a>.</p>
       </motion.div>
-      <div className="w-[100%] pb-4 h-60 relative overflow-visible">
-        <iframe
-          className="absolute top-0 left-0 w-[100%] h-[100%]"
-          id="omg"
-          src="https://mhasbini.com/miscs/react-chrome-dino-demo/index.html"
-          title="Dino Game"
-          loading="lazy"
-        ></iframe>
-      </div>
     </AuroraBackground>
   );
 };

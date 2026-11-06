@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
 import { RiTailwindCssFill } from "react-icons/ri";
@@ -24,8 +22,8 @@ const SkillsCard = () => {
     { name: "CSS", icon: <FaCss3 /> },
     { name: "JavaScript", icon: <FaJs  /> },
     { name: "React", icon: <FaReact /> },
-    { name: "Tailwind CSS", icon: <FaBootstrap /> },
-    { name: "Bootstrap", icon: <RiTailwindCssFill />},
+    { name: "Tailwind CSS", icon: <RiTailwindCssFill /> },
+    { name: "Bootstrap", icon: <FaBootstrap />},
     { name: "Python", icon: <FaPython /> },
     { name: "Java", icon: <FaJava /> },
     { name: "MySQL", icon: <FaDatabase /> },

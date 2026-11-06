@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dinosaur runner</title>
+<style>
+html,body { margin:0; padding:0; background:transparent; overflow:hidden; }
+.game { position:relative; max-width:600px; height:150px; margin:0 auto; }
+.runner-container { position:absolute; top:0; left:0; width:44px; height:150px; overflow:hidden; }
+.runner-canvas { position:absolute; top:0; left:0; height:150px; image-rendering:pixelated; }
+.controller { position:absolute; inset:0; z-index:2; }
+.hidden { display:none; }
+html.dark .runner-container { filter:invert(1); }
+html.inverted .runner-container { filter:invert(1); }
+html.dark.inverted .runner-container { filter:none; }
+</style>
+</head>
+<body>
+<div class="game" aria-label="Chrome dinosaur game"><span class="icon-offline" hidden></span></div>
+<div hidden><img id="offline-resources-1x" src="sprite.png" alt=""><img id="offline-resources-2x" src="sprite-2x.png" alt=""></div>
+<script>var loadTimeData = {valueExists: function(){return false;}}; var HIDDEN_CLASS = 'hidden';</script>
+<script src="runner.js"></script>
+<script>
+// Embed adaptations; the original Chromium runner and artwork are unmodified.
+// Keep keyboard and touch listeners inside this document, away from the contact form.
+Runner.prototype.loadSounds = function() {};
+const game = new Runner('.game');
+function syncTheme() {
+  let dark = false;
+  try { dark = parent.document.documentElement.classList.contains('dark'); } catch {}
+  document.documentElement.classList.toggle('dark', dark);
+  game.isDarkMode = dark;
+}
+syncTheme();
+try { new MutationObserver(syncTheme).observe(parent.document.documentElement, {attributes:true,attributeFilter:['class']}); } catch {}
+window.addEventListener('load', function() {
+  syncTheme();
+  if (game.canvas) { game.canvas.tabIndex=0; game.canvas.setAttribute('aria-label','Dinosaur game. Press Space or Up to jump, Down to duck, Enter to restart.'); }
+});
+// Mouse and touch both start the first jump, as well as restart after a crash.
+document.addEventListener('pointerdown', function(e) {
+  if (!game.playing && !game.crashed) {
+    game.onKeyDown({keyCode:32, preventDefault:function(){}, type:'keydown'});
+  }
+});
+</script>
+</body></html>
